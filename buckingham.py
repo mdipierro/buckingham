@@ -364,6 +364,9 @@ class Number:
         """
         >>> print(Number(2,1) * 1)
         2.00 ± 1.00
+
+        >>> print(Number(4,2) * Number(7,3))
+        (2.80 ± 1.84)x10
         """
         if not isinstance(other,Number):
             other = Number(other)
@@ -371,7 +374,7 @@ class Number:
         b,db = other.value,other.error
         c = a*b
         if not self is other:
-            dc = abs(c)*math.sqrt((da/a)**2+(db/b)**2)
+            dc = math.sqrt((da*b)**2+(db*a)**2)
         else:
             dc = 2.0*da*a
         dims = tuple(self.dims[i]+other.dims[i] for i in range(6))
@@ -388,6 +391,9 @@ class Number:
         """
         >>> print(Number(2,1) / 1)
         2.00 ± 1.00
+
+        >>> print(Number(4,2) / Number(7,3))
+        (5.71 ± 3.76)/10
         """
         if not isinstance(other,Number):
             other = Number(other)
@@ -395,7 +401,7 @@ class Number:
         b,db = other.value,other.error
         c = a/b
         if not self is other:
-            dc = abs(c)*math.sqrt((da/a)**2+(db/b)**2)
+            dc = math.sqrt((da/b)**2+((a*db)/(b*b))**2)
         else:
             dc = 0.0
         dims = tuple(self.dims[i]-other.dims[i] for i in range(6))
@@ -426,6 +432,10 @@ class Number:
         return Number(c,dc,dims)
 
     def convert(self,dims):
+        """
+        >>> print(Number(0, dims="meter/second").convert('kilometer/hour'))
+        (0.000000 ± 0)
+        """
         other = Number(1.0,0,dims)
         if self.dims != other.dims:
             raise RuntimeError("Incompatible Dimensions")
