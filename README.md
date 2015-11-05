@@ -53,7 +53,7 @@ Examples of more complex formulas
     >>> print a**4/(7*b)
     (7.94 ± 6.54)/10^2
 
-(last result is implicitely in meter**4/second**5)
+(last result is implicitely in `meter**4/second**5`)
 
 Financial application example:
 
