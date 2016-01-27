@@ -1,6 +1,10 @@
 Example of dimensional analysis and conversions
 ===============================================
 
+Install with
+
+    pip install buckingham
+
 Example:
 
     >>> a = Number(10,dims='meter/second')
@@ -65,3 +69,6 @@ Financial application example:
 
 I.e. $73048 dollars with $365 dollas of one sigma uncertainly
     
+## License
+
+Created by Massimo Di Pierro (http://experts4solutions.com) @2016 BSDv3 License

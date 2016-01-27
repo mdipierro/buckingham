@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Created by Massimo Di Pierro (http://experts4solutions.com) @2016 BSDv3 License                         
 """
 This module implement:
 
