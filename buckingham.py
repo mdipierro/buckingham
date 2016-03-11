@@ -144,7 +144,7 @@ def extend_units(units):
         ('centi',10.0**-2),
         ('deci',0.1),
         ('deka',10.0),
-        ('hencto',10.0**2),
+        ('hecto',10.0**2),
         ('kilo',10.0**3),
         ('mega',10.0**6),
         ('giga',10.0**9),
@@ -152,7 +152,7 @@ def extend_units(units):
         ('peta',10.0**15),
         ('exa',10.0**18),
         ('zetta',10.0**21),
-        ('votta',10.0**24),
+        ('yotta',10.0**24),
         ]
     keys = [key for key in units]
     for name, conversion in scales:
